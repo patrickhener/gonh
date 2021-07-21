@@ -100,7 +100,7 @@ Output Format:
 
 Again you can define custom templates to be used as list and table if you provide a specific marker at the very first line of your template input file.
 
-%%%%GONH:list=/path/to/list.tmpl,table=/path/to/table.tmpl
+%%%GONH:list=/path/to/list.tmpl,table=/path/to/table.tmpl
 
 You will need to provide both, as the write module will substitute the content using the content-sensitive output.
 
