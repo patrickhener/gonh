@@ -1,4 +1,4 @@
-Go Nessus Helper
+## Go Nessus Helper (gonh)
 
 # Motivation
 
