@@ -1,3 +1,5 @@
+Go Nessus Helper
+
 # Motivation
 
 This tool was motivated by a tool I know and I used to use within my daily routine as a pentester. I reimplemented this tool using go as a coding language and tweaked it to my liking.
