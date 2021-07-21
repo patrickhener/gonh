@@ -1,0 +1,4 @@
+| Host | Port |
+| --- | --- |
+{{ range .FindingLines }}| {{ .Host }} | {{ .AffectedPorts }} |
+{{ end }}
