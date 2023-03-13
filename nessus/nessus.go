@@ -159,11 +159,11 @@ func processFile(processFile string, c *Collection) error {
 				Number:   i.SelectAttr("port"),
 				Protocol: i.SelectAttr("protocol"),
 			}
+
 			finding := Finding{
-				PluginID:    i.SelectAttr("pluginID"),
-				PluginName:  i.SelectAttr("pluginName"),
-				Severity:    i.SelectAttr("severity"),
-				Description: xmlquery.FindOne(i, "//description").InnerText(),
+				PluginID:   i.SelectAttr("pluginID"),
+				PluginName: i.SelectAttr("pluginName"),
+				Severity:   i.SelectAttr("severity"),
 			}
 
 			if output := i.SelectElement("//plugin_output"); output != nil {

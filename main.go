@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/patrickhener/gonh/list"
 	"github.com/patrickhener/gonh/logger"
 	"github.com/patrickhener/gonh/nessus"
 	"github.com/patrickhener/gonh/portscan"
@@ -22,15 +23,15 @@ var (
 	version     bool
 )
 
-const gonhVersion = "v0.0.1"
+const gonhVersion = "v0.0.2"
 
 func Usage() {
 	fmt.Printf(`
 GoNessusHelper version: %s
 
-Usage: gonh -mode [query|portscan|write] -in /path/to/nessus-files/(file.nessus)
+Usage: gonh -mode [query|portscan|write|list] -in /path/to/nessus-files/(file.nessus)
 
-There are 3 valid modes, which are query, portscan and write.
+There are 4 valid modes, which are query, portscan, write and list.
 
 Query
 =====
@@ -106,6 +107,10 @@ Example:
 
 gonh -mode write -in /my/project/nessus-files -t /my/project/template-file.md -out /my/outdir/output-file.md
 
+List
+====
+List does just list all plugins sorted by serverity, as you would get from the write module at the end with all unmatched plugins. This is to get a brief overview of what findings are in the nessus files.
+
 `, gonhVersion)
 }
 
@@ -174,6 +179,9 @@ func main() {
 		if _, err := portscan.Do(c, temp, true); err != nil {
 			logger.Panicf("There was an error running the portscan module: %s", err)
 		}
+	case "list":
+		c := fetchNDC(indir)
+		list.Do(c)
 	default:
 		Usage()
 	}

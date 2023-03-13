@@ -30,9 +30,10 @@ go install github.com/patrickhener/gonh@latest
 Basically the usage page says it all
 
 ```bash
-Usage: gonh -mode [query|portscan|write] -in /path/to/nessus-files/(file.nessus)
+Usage: gonh -mode [query|portscan|write|list] -in /path/to/nessus-files/(file.nessus)
 
-There are 3 valid modes, which are query, portscan and write.
+There are 4 valid modes, which are query, portscan, write and list.
+
 
 Query
 =====
@@ -107,6 +108,10 @@ You will need to provide both, as the write module will substitute the content u
 Example:
 
 gonh -mode write -in /my/project/nessus-files -t /my/project/template-file.md -out /my/outdir/output-file.md
+
+List
+====
+List does just list all plugins sorted by serverity, as you would get from the write module at the end with all unmatched plugins. This is to get a brief overview of what findings are in the nessus files.
 ```
 
 # Templating
